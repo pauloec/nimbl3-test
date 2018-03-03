@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  SurveyTableViewCell.h
 //  Nimbl3
 //
 //  Created by Paulo Correa on 03/03/18.
@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
+@interface SurveyTableViewCell : UITableViewCell
 
 @end
-

@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		E025B33D204A6C320044A98B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E025B33C204A6C320044A98B /* AppDelegate.m */; };
-		E025B343204A6C320044A98B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E025B341204A6C320044A98B /* Main.storyboard */; };
 		E025B345204A6C320044A98B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E025B344204A6C320044A98B /* Assets.xcassets */; };
-		E025B348204A6C320044A98B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E025B346204A6C320044A98B /* LaunchScreen.storyboard */; };
 		E025B34B204A6C320044A98B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E025B34A204A6C320044A98B /* main.m */; };
+		E025B357204A843C0044A98B /* SurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E025B356204A843C0044A98B /* SurveyViewController.m */; };
+		E025B35A204A85410044A98B /* SurveyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E025B359204A85410044A98B /* SurveyTableViewCell.m */; };
+		E025B35D204A88F00044A98B /* SurveyViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E025B35C204A88F00044A98B /* SurveyViewModel.m */; };
+		E025B360204A8E730044A98B /* SurveyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E025B35F204A8E730044A98B /* SurveyModel.m */; };
 		F9EBC64554B017E8094A0362 /* libPods-Nimbl3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D335B9AA3F32D8DD0A56B14 /* libPods-Nimbl3.a */; };
 /* End PBXBuildFile section */
 
@@ -22,11 +24,17 @@
 		E025B338204A6C320044A98B /* Nimbl3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nimbl3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E025B33B204A6C320044A98B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E025B33C204A6C320044A98B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E025B342204A6C320044A98B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E025B344204A6C320044A98B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E025B347204A6C320044A98B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E025B349204A6C320044A98B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E025B34A204A6C320044A98B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E025B355204A843C0044A98B /* SurveyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SurveyViewController.h; sourceTree = "<group>"; };
+		E025B356204A843C0044A98B /* SurveyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SurveyViewController.m; sourceTree = "<group>"; };
+		E025B358204A85410044A98B /* SurveyTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SurveyTableViewCell.h; sourceTree = "<group>"; };
+		E025B359204A85410044A98B /* SurveyTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SurveyTableViewCell.m; sourceTree = "<group>"; };
+		E025B35B204A88F00044A98B /* SurveyViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SurveyViewModel.h; sourceTree = "<group>"; };
+		E025B35C204A88F00044A98B /* SurveyViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SurveyViewModel.m; sourceTree = "<group>"; };
+		E025B35E204A8E730044A98B /* SurveyModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SurveyModel.h; sourceTree = "<group>"; };
+		E025B35F204A8E730044A98B /* SurveyModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SurveyModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +94,7 @@
 				E025B33B204A6C320044A98B /* AppDelegate.h */,
 				E025B33C204A6C320044A98B /* AppDelegate.m */,
 				E025B34A204A6C320044A98B /* main.m */,
+				E025B349204A6C320044A98B /* Info.plist */,
 			);
 			path = Nimbl3;
 			sourceTree = "<group>";
@@ -93,10 +102,7 @@
 		E025B351204A6D6F0044A98B /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				E025B341204A6C320044A98B /* Main.storyboard */,
 				E025B344204A6C320044A98B /* Assets.xcassets */,
-				E025B346204A6C320044A98B /* LaunchScreen.storyboard */,
-				E025B349204A6C320044A98B /* Info.plist */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -104,6 +110,8 @@
 		E025B352204A6D830044A98B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E025B35E204A8E730044A98B /* SurveyModel.h */,
+				E025B35F204A8E730044A98B /* SurveyModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -111,6 +119,8 @@
 		E025B353204A6D8A0044A98B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E025B35B204A88F00044A98B /* SurveyViewModel.h */,
+				E025B35C204A88F00044A98B /* SurveyViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -118,6 +128,10 @@
 		E025B354204A6D900044A98B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E025B355204A843C0044A98B /* SurveyViewController.h */,
+				E025B356204A843C0044A98B /* SurveyViewController.m */,
+				E025B358204A85410044A98B /* SurveyTableViewCell.h */,
+				E025B359204A85410044A98B /* SurveyTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -183,9 +197,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E025B348204A6C320044A98B /* LaunchScreen.storyboard in Resources */,
 				E025B345204A6C320044A98B /* Assets.xcassets in Resources */,
-				E025B343204A6C320044A98B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,31 +259,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E025B357204A843C0044A98B /* SurveyViewController.m in Sources */,
+				E025B360204A8E730044A98B /* SurveyModel.m in Sources */,
+				E025B35D204A88F00044A98B /* SurveyViewModel.m in Sources */,
+				E025B35A204A85410044A98B /* SurveyTableViewCell.m in Sources */,
 				E025B34B204A6C320044A98B /* main.m in Sources */,
 				E025B33D204A6C320044A98B /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		E025B341204A6C320044A98B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E025B342204A6C320044A98B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		E025B346204A6C320044A98B /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E025B347204A6C320044A98B /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		E025B34C204A6C320044A98B /* Debug */ = {
