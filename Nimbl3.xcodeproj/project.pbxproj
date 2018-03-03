@@ -12,9 +12,13 @@
 		E025B345204A6C320044A98B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E025B344204A6C320044A98B /* Assets.xcassets */; };
 		E025B348204A6C320044A98B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E025B346204A6C320044A98B /* LaunchScreen.storyboard */; };
 		E025B34B204A6C320044A98B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E025B34A204A6C320044A98B /* main.m */; };
+		F9EBC64554B017E8094A0362 /* libPods-Nimbl3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D335B9AA3F32D8DD0A56B14 /* libPods-Nimbl3.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D335B9AA3F32D8DD0A56B14 /* libPods-Nimbl3.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Nimbl3.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F768613DF16FA9ADE54B83C /* Pods-Nimbl3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nimbl3.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Nimbl3/Pods-Nimbl3.debug.xcconfig"; sourceTree = "<group>"; };
+		D0D40A7E526158B814C37F34 /* Pods-Nimbl3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nimbl3.release.xcconfig"; path = "Pods/Target Support Files/Pods-Nimbl3/Pods-Nimbl3.release.xcconfig"; sourceTree = "<group>"; };
 		E025B338204A6C320044A98B /* Nimbl3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nimbl3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E025B33B204A6C320044A98B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E025B33C204A6C320044A98B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -30,17 +34,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9EBC64554B017E8094A0362 /* libPods-Nimbl3.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AE8ABB84E964239BAA1A6594 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3D335B9AA3F32D8DD0A56B14 /* libPods-Nimbl3.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B6F3C35C0AA7484C761EC0D8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8F768613DF16FA9ADE54B83C /* Pods-Nimbl3.debug.xcconfig */,
+				D0D40A7E526158B814C37F34 /* Pods-Nimbl3.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		E025B32F204A6C320044A98B = {
 			isa = PBXGroup;
 			children = (
 				E025B33A204A6C320044A98B /* Nimbl3 */,
 				E025B339204A6C320044A98B /* Products */,
+				B6F3C35C0AA7484C761EC0D8 /* Pods */,
+				AE8ABB84E964239BAA1A6594 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,9 +129,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E025B34E204A6C320044A98B /* Build configuration list for PBXNativeTarget "Nimbl3" */;
 			buildPhases = (
+				CC092BF1A2AE3D810BC9F2E0 /* [CP] Check Pods Manifest.lock */,
 				E025B334204A6C320044A98B /* Sources */,
 				E025B335204A6C320044A98B /* Frameworks */,
 				E025B336204A6C320044A98B /* Resources */,
+				2818E681E63E0B4E68B71630 /* [CP] Embed Pods Frameworks */,
+				E8169CB83016368B4A29547A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -163,6 +190,57 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2818E681E63E0B4E68B71630 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nimbl3/Pods-Nimbl3-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CC092BF1A2AE3D810BC9F2E0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Nimbl3-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E8169CB83016368B4A29547A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nimbl3/Pods-Nimbl3-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E025B334204A6C320044A98B /* Sources */ = {
@@ -302,6 +380,7 @@
 		};
 		E025B34F204A6C320044A98B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F768613DF16FA9ADE54B83C /* Pods-Nimbl3.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -316,6 +395,7 @@
 		};
 		E025B350204A6C320044A98B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0D40A7E526158B814C37F34 /* Pods-Nimbl3.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
