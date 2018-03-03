@@ -14,5 +14,8 @@ target 'Nimbl3' do
   # UI
   pod 'Masonry'
 
+  # Archtecture
+  pod 'ReactiveObjC'
+
 end
 
