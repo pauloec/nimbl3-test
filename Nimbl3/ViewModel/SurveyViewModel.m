@@ -7,6 +7,7 @@
 //
 
 #import "SurveyViewModel.h"
+#import "SurveyModel.h"
 @interface SurveyViewModel ()
 @property (nonatomic, readwrite) BOOL isLoading;
 @property (nonatomic, copy) NSArray *surveys;
@@ -18,7 +19,7 @@
     self = [super init];
     if (self) {
         _isLoading = NO;
-        _surveys = [NSArray new];
+        _surveys = @[[SurveyModel new]];
         _refreshSurveyCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
             return [self refreshSurveys];
         }];
