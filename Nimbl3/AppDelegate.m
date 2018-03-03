@@ -7,12 +7,14 @@
 //
 
 #import "AppDelegate.h"
+#import "SurveyService.h"
 #import "SurveyViewModel.h"
 #import "SurveyViewController.h"
 
 @interface AppDelegate ()
 @property (nonatomic, retain) UINavigationController *navigationController;
 @property (nonatomic, strong) SurveyViewModel *viewModel;
+@property (nonatomic, strong) SurveyService *viewModelService;
 @end
 
 @implementation AppDelegate
@@ -32,7 +34,8 @@
 }
 
 - (UIViewController *)createInitialViewController {
-    self.viewModel = [SurveyViewModel new];
+    self.viewModelService = [SurveyService new];
+    self.viewModel = [[SurveyViewModel alloc] initWithService:self.viewModelService];
     return [[SurveyViewController alloc] initWithViewModel:self.viewModel];
 }
 

@@ -8,28 +8,25 @@
 
 #import "SurveyViewModel.h"
 #import "SurveyModel.h"
+
 @interface SurveyViewModel ()
 @property (nonatomic, readwrite) BOOL isLoading;
 @property (nonatomic, copy) NSArray *surveys;
+@property (nonatomic, weak) id<SurveyServiceProtocol> service;
 @end
 
 @implementation SurveyViewModel
 
-- (instancetype)init {
+- (instancetype)initWithService:(id<SurveyServiceProtocol>)service {
     self = [super init];
     if (self) {
         _isLoading = NO;
-        _surveys = @[[SurveyModel new]];
         _refreshSurveyCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
-            return [self refreshSurveys];
+            return [[self.service getSurveySearchService] surveySearchSignal];
         }];
+        _service = service;
     }
     return self;
-}
-
-- (RACSignal *)refreshSurveys {
-    self.isLoading = YES;
-    return [[RACSignal empty] logAll];
 }
 
 @end

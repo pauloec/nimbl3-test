@@ -9,5 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface SurveyModel : NSObject
-
+@property (nonatomic, readonly) NSString *title;
+@property (nonatomic, readonly) NSString *descriptionText;
+@property (nonatomic, readonly) NSURL *imageURL;
 @end

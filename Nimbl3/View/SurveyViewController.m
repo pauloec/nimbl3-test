@@ -8,7 +8,9 @@
 
 #import "SurveyViewController.h"
 #import "TableViewDataSource.h"
+#import "SurveyTableViewCell.h"
 #import "SurveyModel.h"
+#import <AFNetworking/UIImageView+AFNetworking.h>
 #import <Masonry/Masonry.h>
 
 static NSString * const SurveyCellIdentifier = @"CellIdentifier";
@@ -32,14 +34,17 @@ static NSString * const SurveyCellIdentifier = @"CellIdentifier";
         UIActivityIndicatorView *loadingView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
         [loadingView startAnimating];
         _loadingButton = [[UIBarButtonItem alloc] initWithCustomView:loadingView];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     }
     return self;
 }
 
 #pragma mark - UITableView Datasource
 - (void)setupTableView {
-    TableViewBlock tableViewBlock = ^(UITableViewCell *cell, SurveyModel *survey) {
-        [cell.textLabel setText:@"Test"];
+    TableViewBlock tableViewBlock = ^(SurveyTableViewCell *cell, SurveyModel *survey) {
+        cell.surveyTitle.text = survey.title;
+        cell.surveyDescription.text = survey.descriptionText;
+        [cell.surveyImage setImageWithURL:[NSURL URLWithString:survey.image]];
     };
     
     self.tableViewDataSource = [[TableViewDataSource alloc] initWithItems:self.viewModel.surveys
@@ -47,7 +52,15 @@ static NSString * const SurveyCellIdentifier = @"CellIdentifier";
                                                             configureCell:tableViewBlock];
     [self.tableView setDataSource:self.tableViewDataSource];
     [self.tableView setDelegate:self];
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:SurveyCellIdentifier];
+    [self.tableView registerClass:[SurveyTableViewCell class] forCellReuseIdentifier:SurveyCellIdentifier];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.allowsSelection = NO;
+    [self.view addSubview:self.tableView];
+}
+
+#pragma mark - UITableview Delegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return self.view.frame.size.height - [UIApplication sharedApplication].statusBarFrame.size.height - self.navigationController.navigationBar.frame.size.height;
 }
 
 #pragma mark - Bind ViewModel
@@ -55,7 +68,9 @@ static NSString * const SurveyCellIdentifier = @"CellIdentifier";
     @weakify(self)
     [RACObserve(self, viewModel.surveys) subscribeNext:^(id  _Nullable x) {
         @strongify(self);
-        [self.tableView reloadData];
+        if (x) {
+            [self.tableView reloadData];
+        }
     }];
     RAC(self, navigationItem.leftBarButtonItem) = [RACObserve(self, viewModel.isLoading) map:^id _Nullable(id  _Nullable loading) {
         @strongify(self);
@@ -76,6 +91,10 @@ static NSString * const SurveyCellIdentifier = @"CellIdentifier";
 }
 
 - (void)updateViewConstraints {
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    
     [super updateViewConstraints];
 }
 

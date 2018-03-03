@@ -6,6 +6,7 @@
 //  Copyright © 2018 Paulo Correa. All rights reserved.
 //
 
+#import "SurveyServiceProtocol.h"
 #import <Foundation/Foundation.h>
 #import <ReactiveObjC/ReactiveObjC.h>
 
@@ -13,4 +14,6 @@
 @property (nonatomic, readonly) BOOL isLoading;
 @property (nonatomic, copy, readonly) NSArray *surveys;
 @property (nonatomic, strong) RACCommand *refreshSurveyCommand;
+
+- (instancetype)initWithService:(id<SurveyServiceProtocol>)service;
 @end

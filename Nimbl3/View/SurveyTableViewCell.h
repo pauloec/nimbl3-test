@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface SurveyTableViewCell : UITableViewCell
-
+@property (nonatomic, strong) UILabel *surveyTitle;
+@property (nonatomic, strong) UILabel *surveyDescription;
+@property (nonatomic, strong) UIImageView *surveyImage;
 @end
