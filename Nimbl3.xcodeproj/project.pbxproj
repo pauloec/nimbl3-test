@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E00DCB5C204B21430011200C /* TableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = E00DCB5B204B21430011200C /* TableViewDataSource.m */; };
 		E025B33D204A6C320044A98B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E025B33C204A6C320044A98B /* AppDelegate.m */; };
 		E025B345204A6C320044A98B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E025B344204A6C320044A98B /* Assets.xcassets */; };
 		E025B34B204A6C320044A98B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E025B34A204A6C320044A98B /* main.m */; };
@@ -21,6 +22,8 @@
 		3D335B9AA3F32D8DD0A56B14 /* libPods-Nimbl3.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Nimbl3.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F768613DF16FA9ADE54B83C /* Pods-Nimbl3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nimbl3.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Nimbl3/Pods-Nimbl3.debug.xcconfig"; sourceTree = "<group>"; };
 		D0D40A7E526158B814C37F34 /* Pods-Nimbl3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nimbl3.release.xcconfig"; path = "Pods/Target Support Files/Pods-Nimbl3/Pods-Nimbl3.release.xcconfig"; sourceTree = "<group>"; };
+		E00DCB5A204B21430011200C /* TableViewDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewDataSource.h; sourceTree = "<group>"; };
+		E00DCB5B204B21430011200C /* TableViewDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewDataSource.m; sourceTree = "<group>"; };
 		E025B338204A6C320044A98B /* Nimbl3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nimbl3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E025B33B204A6C320044A98B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E025B33C204A6C320044A98B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -69,6 +72,8 @@
 		E00DCB59204B20220011200C /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
+				E00DCB5A204B21430011200C /* TableViewDataSource.h */,
+				E00DCB5B204B21430011200C /* TableViewDataSource.m */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -268,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E025B357204A843C0044A98B /* SurveyViewController.m in Sources */,
+				E00DCB5C204B21430011200C /* TableViewDataSource.m in Sources */,
 				E025B360204A8E730044A98B /* SurveyModel.m in Sources */,
 				E025B35D204A88F00044A98B /* SurveyViewModel.m in Sources */,
 				E025B35A204A85410044A98B /* SurveyTableViewCell.m in Sources */,

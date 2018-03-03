@@ -7,12 +7,16 @@
 //
 
 #import "SurveyViewController.h"
+#import "TableViewDataSource.h"
+#import "SurveyModel.h"
 #import <Masonry/Masonry.h>
 
-@interface SurveyViewController ()
+static NSString * const SurveyCellIdentifier = @"CellIdentifier";
+
+@interface SurveyViewController () <UITableViewDelegate>
 @property (nonatomic, weak) SurveyViewModel *viewModel;
-@property (nonatomic, copy) NSArray *surveys;
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) TableViewDataSource *tableViewDataSource;
 @property (nonatomic, strong) UIBarButtonItem *refreshButton;
 @property (nonatomic, strong) UIBarButtonItem *loadingButton;
 @end
@@ -32,12 +36,25 @@
     return self;
 }
 
+#pragma mark - UITableView Datasource
+- (void)setupTableView {
+    TableViewBlock tableViewBlock = ^(UITableViewCell *cell, SurveyModel *survey) {
+        [cell.textLabel setText:@"Test"];
+    };
+    
+    self.tableViewDataSource = [[TableViewDataSource alloc] initWithItems:self.viewModel.surveys
+                                                           cellIdentifier:SurveyCellIdentifier
+                                                            configureCell:tableViewBlock];
+    [self.tableView setDataSource:self.tableViewDataSource];
+    [self.tableView setDelegate:self];
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:SurveyCellIdentifier];
+}
+
 #pragma mark - Bind ViewModel
 - (void)bindViewModel {
     @weakify(self)
     [RACObserve(self, viewModel.surveys) subscribeNext:^(id  _Nullable x) {
         @strongify(self);
-        self.surveys = x;
         [self.tableView reloadData];
     }];
     RAC(self, navigationItem.leftBarButtonItem) = [RACObserve(self, viewModel.isLoading) map:^id _Nullable(id  _Nullable loading) {
@@ -52,6 +69,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self bindViewModel];
+    [self setupTableView];
 
     self.refreshButton.tintColor = [UIColor whiteColor];
     self.title = @"SURVEYS";
