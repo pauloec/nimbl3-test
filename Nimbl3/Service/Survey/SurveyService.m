@@ -10,8 +10,8 @@
 #import "SurveySearch.h"
 #import <AFOAuth2Manager/AFOAuth2Manager.h>
 
-static NSString * const serviceBaseURL = @"https://nimbl3-survey-api.herokuapp.com/";
-static NSString * const serviceProviderIdentifier = @"Nimbl3";
+static NSString * const NBserviceBaseURL = @"https://nimbl3-survey-api.herokuapp.com/";
+static NSString * const NBserviceProviderIdentifier = @"Nimbl3";
 
 @interface SurveyService ()
 @property (nonatomic, strong) SurveySearch *searchService;
@@ -36,7 +36,7 @@ static NSString * const serviceProviderIdentifier = @"Nimbl3";
 }
 
 - (void)requestToken {
-    NSURL *baseURL = [NSURL URLWithString:serviceBaseURL];
+    NSURL *baseURL = [NSURL URLWithString:NBserviceBaseURL];
     AFOAuth2Manager *OAuth2Manager = [[AFOAuth2Manager alloc] initWithBaseURL:baseURL];
     [OAuth2Manager authenticateUsingOAuthWithURLString:@"/oauth/token"
                                               username:@"carlos@nimbl3.com"
@@ -48,7 +48,7 @@ static NSString * const serviceProviderIdentifier = @"Nimbl3";
                                                    [self.manager.requestSerializer setAuthorizationHeaderFieldWithCredential:credential];
                                                    self.searchService.manager = self.manager;
                                                    self.hasAuth = YES;
-                                                   [AFOAuthCredential storeCredential:credential withIdentifier:serviceProviderIdentifier];
+                                                   [AFOAuthCredential storeCredential:credential withIdentifier:NBserviceProviderIdentifier];
                                                }
                                                failure:^(NSError *error) {
                                                    NSLog(@"Error: %@", error);
