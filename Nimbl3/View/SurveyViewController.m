@@ -28,7 +28,7 @@ static NSString * const SurveyCellIdentifier = @"CellIdentifier";
 #pragma mark - Init
 - (instancetype)initWithViewModel:(SurveyViewModel *)viewModel {
     self = [super init];
-    if (self ) {
+    if (self) {
         _viewModel = viewModel;
         _refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:nil action:nil];
         UIActivityIndicatorView *loadingView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
@@ -42,13 +42,12 @@ static NSString * const SurveyCellIdentifier = @"CellIdentifier";
 #pragma mark - UITableView Datasource
 - (void)setupTableView {
     TableViewBlock tableViewBlock = ^(SurveyTableViewCell *cell, SurveyModel *survey) {
-        cell.surveyTitle.text = survey.title;
+        cell.surveyTitle.text = survey.titleText;
         cell.surveyDescription.text = survey.descriptionText;
-        [cell.surveyImage setImageWithURL:[NSURL URLWithString:survey.image]];
+        [cell.surveyImage setImageWithURL:survey.imageHighResolution];
     };
     
-    self.tableViewDataSource = [[TableViewDataSource alloc] initWithItems:self.viewModel.surveys
-                                                           cellIdentifier:SurveyCellIdentifier
+    self.tableViewDataSource = [[TableViewDataSource alloc] initCellIdentifier:SurveyCellIdentifier
                                                             configureCell:tableViewBlock];
     [self.tableView setDataSource:self.tableViewDataSource];
     [self.tableView setDelegate:self];
@@ -66,18 +65,17 @@ static NSString * const SurveyCellIdentifier = @"CellIdentifier";
 #pragma mark - Bind ViewModel
 - (void)bindViewModel {
     @weakify(self)
-    [RACObserve(self, viewModel.surveys) subscribeNext:^(id  _Nullable x) {
+    [RACObserve(self, viewModel.surveys) subscribeNext:^(id  _Nullable surveys) {
         @strongify(self);
-        if (x) {
-            [self.tableView reloadData];
-        }
+        self.tableViewDataSource.arrItem = surveys;
+        [self.tableView reloadData];
     }];
     RAC(self, navigationItem.leftBarButtonItem) = [RACObserve(self, viewModel.isLoading) map:^id _Nullable(id  _Nullable loading) {
         @strongify(self);
         return [loading boolValue] ? self.loadingButton : self.refreshButton;
     }];
     
-    RAC(self, refreshButton.rac_command) = RACObserve(self, viewModel.refreshSurveyCommand);
+    RAC(self, refreshButton.rac_command) = RACObserve(self, viewModel.searchCommand);
 }
 
 #pragma mark - View Lifecycle

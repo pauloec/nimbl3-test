@@ -9,7 +9,6 @@
 #import "TableViewDataSource.h"
 
 @interface TableViewDataSource ()
-@property (nonatomic, strong) NSArray *arrItem;
 @property (nonatomic, copy) NSString *cellIdentifier;
 @property (nonatomic, copy) TableViewBlock cellBlock;
 @end
@@ -20,12 +19,12 @@
     return nil;
 }
 
-- (instancetype)initWithItems:(NSArray *)items cellIdentifier:(NSString *)cellIdentifier configureCell:(TableViewBlock)cellBlock {
+- (instancetype)initCellIdentifier:(NSString *)cellIdentifier configureCell:(TableViewBlock)cellBlock {
     self = [super init];
     if (self) {
-        self.arrItem = items;
         self.cellIdentifier = cellIdentifier;
         self.cellBlock = cellBlock;
+        self.arrItem = [NSArray new];
     }
     
     return self;

@@ -1,5 +1,5 @@
 //
-//  SurveySearch.h
+//  SurveyServiceProtocol.h
 //  Nimbl3
 //
 //  Created by Paulo Correa on 04/03/18.
@@ -9,6 +9,7 @@
 #import "SurveySearchProtocol.h"
 #import <Foundation/Foundation.h>
 
-@interface SurveySearch : NSObject <SurveySearchProtocol>
-
+@protocol SurveyServiceProtocol <NSObject>
+@property (nonatomic, readonly) BOOL hasAuth; // Shouldn't exist!!
+- (id<SurveySearchProtocol>)surveySearchService;
 @end
