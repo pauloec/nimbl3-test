@@ -11,7 +11,6 @@
 
 @interface SurveyViewModel ()
 @property (nonatomic, readwrite) BOOL isLoading;
-@property (nonatomic, copy) NSArray *surveys;
 @property (nonatomic, weak) id<SurveyServiceProtocol> service;
 @end
 
@@ -20,13 +19,34 @@
 - (instancetype)initWithService:(id<SurveyServiceProtocol>)service {
     self = [super init];
     if (self) {
-        _isLoading = NO;
-        _refreshSurveyCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
-            return [[self.service getSurveySearchService] surveySearchSignal];
+        @weakify(self);
+        _searchCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            @strongify(self);
+            return [self requestSignal];
         }];
         _service = service;
+        [RACObserve(self, service.hasAuth) subscribeNext:^(id  _Nullable x) {
+            @strongify(self);
+            [x boolValue] ? [self.searchCommand execute:nil] : nil;
+        }];
+        _isLoading = YES;
     }
     return self;
+}
+
+- (RACSignal *)requestSignal {
+    RACSignal *requestSignal = [[self.service surveySearchService] surveySearchSignal];
+    requestSignal = [requestSignal initially:^{
+        self.isLoading = YES;
+        self.surveys = @[];
+    }];
+    [requestSignal subscribeNext:^(id  _Nullable surveys) {
+        self.surveys = surveys;
+    }];
+    requestSignal = [requestSignal finally:^{
+        self.isLoading = NO;
+    }];
+    return requestSignal;
 }
 
 @end

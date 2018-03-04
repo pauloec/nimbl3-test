@@ -7,8 +7,9 @@
 //
 
 #import "SurveyServiceProtocol.h"
+#import <AFNetworking/AFNetworking.h>
 #import <Foundation/Foundation.h>
 
 @interface SurveyService : NSObject <SurveyServiceProtocol>
-
+@property (nonatomic, readonly) BOOL hasAuth;
 @end

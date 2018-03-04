@@ -12,5 +12,6 @@
 typedef void (^TableViewBlock)(id cell, id item);
 
 @interface TableViewDataSource : NSObject <UITableViewDataSource>
-- (instancetype)initWithItems:(NSArray *)items cellIdentifier:(NSString *)cellIdentifier configureCell:(TableViewBlock)cellBlock;
+- (instancetype)initCellIdentifier:(NSString *)cellIdentifier configureCell:(TableViewBlock)cellBlock;
+@property (nonatomic, copy) NSArray *arrItem;
 @end

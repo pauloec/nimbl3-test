@@ -9,21 +9,25 @@
 #import "SurveyModel.h"
 
 @interface SurveyModel ()
-@property (nonatomic, readwrite) NSString *title;
+@property (nonatomic, readwrite) NSString *titleText;
 @property (nonatomic, readwrite) NSString *descriptionText;
-@property (nonatomic, readwrite) NSURL *imageURL;
+@property (nonatomic, readwrite) NSString *imageURL;
 @end
 
 @implementation SurveyModel
 
-- (instancetype)init {
+- (instancetype)initWithText:(NSString *)text description:(NSString *)description imageURL:(NSString *)URL {
     self = [super init];
     if (self) {
-        _title = @"SURVEY";
-        _descriptionText = @"Description";
-        _imageURL = [NSURL URLWithString:@"https://i.ytimg.com/vi/dQw4w9WgXcQ/maxresdefault.jpg"];
+        _titleText = text;
+        _descriptionText = description;
+        _imageURL = URL;
     }
     return self;
+}
+
+- (NSURL *)imageHighResolution {
+    return [NSURL URLWithString:[NSString stringWithFormat:@"%@l", self.imageURL]];
 }
 
 @end

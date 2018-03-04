@@ -86,6 +86,35 @@
 			path = DataSource;
 			sourceTree = "<group>";
 		};
+		E00E7C42204BDE7200E80DBE /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				E00E7C48204C076E00E80DBE /* Survey */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		E00E7C43204BDE7E00E80DBE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E00DCB59204B20220011200C /* DataSource */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		E00E7C48204C076E00E80DBE /* Survey */ = {
+			isa = PBXGroup;
+			children = (
+				E0407D2F204B535200CDB035 /* SurveyServiceProtocol.h */,
+				E00E7C3E204B555600E80DBE /* SurveyService.h */,
+				E00E7C3F204B555600E80DBE /* SurveyService.m */,
+				E00DCB60204B50370011200C /* SurveySearchProtocol.h */,
+				E0407D2B204B518700CDB035 /* SurveySearch.h */,
+				E0407D2C204B518700CDB035 /* SurveySearch.m */,
+			);
+			path = Survey;
+			sourceTree = "<group>";
+		};
 		E025B32F204A6C320044A98B = {
 			isa = PBXGroup;
 			children = (
@@ -107,7 +136,8 @@
 		E025B33A204A6C320044A98B /* Nimbl3 */ = {
 			isa = PBXGroup;
 			children = (
-				E00DCB59204B20220011200C /* DataSource */,
+				E00E7C43204BDE7E00E80DBE /* Utils */,
+				E00E7C42204BDE7200E80DBE /* Service */,
 				E025B352204A6D830044A98B /* Model */,
 				E025B353204A6D8A0044A98B /* ViewModel */,
 				E025B354204A6D900044A98B /* View */,
@@ -133,9 +163,6 @@
 			children = (
 				E025B35E204A8E730044A98B /* SurveyModel.h */,
 				E025B35F204A8E730044A98B /* SurveyModel.m */,
-				E0407D2B204B518700CDB035 /* SurveySearch.h */,
-				E0407D2C204B518700CDB035 /* SurveySearch.m */,
-				E00DCB60204B50370011200C /* SurveySearchProtocol.h */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -145,9 +172,6 @@
 			children = (
 				E025B35B204A88F00044A98B /* SurveyViewModel.h */,
 				E025B35C204A88F00044A98B /* SurveyViewModel.m */,
-				E00E7C3E204B555600E80DBE /* SurveyService.h */,
-				E00E7C3F204B555600E80DBE /* SurveyService.m */,
-				E0407D2F204B535200CDB035 /* SurveyServiceProtocol.h */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";

@@ -1,5 +1,5 @@
 //
-//  SurveyServiceProtocol.h
+//  SurveySearch.h
 //  Nimbl3
 //
 //  Created by Paulo Correa on 04/03/18.
@@ -7,8 +7,9 @@
 //
 
 #import "SurveySearchProtocol.h"
+#import <AFNetworking/AFNetworking.h>
 #import <Foundation/Foundation.h>
 
-@protocol SurveyServiceProtocol <NSObject>
-- (id<SurveySearchProtocol>)getSurveySearchService;
+@interface SurveySearch : NSObject <SurveySearchProtocol>
+@property (nonatomic, weak) AFHTTPSessionManager *manager;
 @end

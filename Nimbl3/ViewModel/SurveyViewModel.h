@@ -12,8 +12,8 @@
 
 @interface SurveyViewModel : NSObject
 @property (nonatomic, readonly) BOOL isLoading;
-@property (nonatomic, copy, readonly) NSArray *surveys;
-@property (nonatomic, strong) RACCommand *refreshSurveyCommand;
+@property (nonatomic, copy) NSArray *surveys;
+@property (nonatomic, readonly) RACCommand *searchCommand;
 
 - (instancetype)initWithService:(id<SurveyServiceProtocol>)service;
 @end
