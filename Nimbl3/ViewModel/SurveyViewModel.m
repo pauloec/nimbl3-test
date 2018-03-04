@@ -7,7 +7,6 @@
 //
 
 #import "SurveyViewModel.h"
-#import "SurveyModel.h"
 
 @interface SurveyViewModel ()
 @property (nonatomic, readwrite) BOOL isLoading;

@@ -12,4 +12,5 @@
 @property (nonatomic, strong) UILabel *surveyTitle;
 @property (nonatomic, strong) UILabel *surveyDescription;
 @property (nonatomic, strong) UIImageView *surveyImage;
+@property (nonatomic, strong) UIButton *surveyButton;
 @end
